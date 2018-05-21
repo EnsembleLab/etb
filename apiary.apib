@@ -1,80 +1,116 @@
 FORMAT: 1A
-HOST: http://polls.apiblueprint.org/
+HOST: http://private-8b88f1-etb.apiary-mock.com/
 
 # ETB
 
-Polls is a simple API allowing consumers to view polls and vote in them.
+This documents the API specs for the ETB project
 
-## Questions Collection [/questions]
+## Users Microservice [/users]
 
-### List All Questions [GET]
+### Sign up a new user [GET /register]
 
-+ Response 200 (application/json)
+### Login to your account [GET /login]
 
-        [
-            {
-                "question": "Favourite programming language?",
-                "published_at": "2015-08-05T08:40:51.620Z",
-                "choices": [
-                    {
-                        "choice": "Swift",
-                        "votes": 2048
-                    }, {
-                        "choice": "Python",
-                        "votes": 1024
-                    }, {
-                        "choice": "Objective-C",
-                        "votes": 512
-                    }, {
-                        "choice": "Ruby",
-                        "votes": 256
-                    }
-                ]
-            }
-        ]
+### Forgot password [GET /forgotpassword]
 
-### Create a New Question [POST]
+### Set a new password [GET /setnewpassword]
 
-You may create your own question using this action. It takes a JSON
-object containing a question and a collection of answers in the
-form of choices.
+### Update a user [PUT /users/:userId]
 
-+ Request (application/json)
+### Get a user [GET /users/:userId]
 
-        {
-            "question": "Favourite programming language?",
-            "choices": [
-                "Swift",
-                "Python",
-                "Objective-C",
-                "Ruby"
-            ]
-        }
+### Report Issue [GET /users/:userId/reportIssue]
 
-+ Response 201 (application/json)
+### Set Pin [GET /users/:userId/setPin]
 
-    + Headers
+### Validate Pin [GET /users/:userId/validatePin]
 
-            Location: /questions/2
+### Verify BVN [GET /users/:userId/verifyBvn]
 
-    + Body
+### Complete BVN Verification [GET /users/:userId/completeVerifyBvn]
 
-            {
-                "question": "Favourite programming language?",
-                "published_at": "2015-08-05T08:40:51.620Z",
-                "choices": [
-                    {
-                        "choice": "Swift",
-                        "votes": 0
-                    }, {
-                        "choice": "Python",
-                        "votes": 0
-                    }, {
-                        "choice": "Objective-C",
-                        "votes": 0
-                    }, {
-                        "choice": "Ruby",
-                        "votes": 0
-                    }
-                ]
-            }
+## Loans Microservice [/loans]
+
+### Get loan repayments [GET /loanrepayments]
+
+### Make loan repayment [POST /loanrepayments/:loanId]
+
+### Create loan [POST /loans]
+
+### Get loan decision [GET /loans/:loanId/decision]
+
+### Approve loan [POST /loans/:loanId/approve]
+
+### Get loan [PUT /loans/:loanId]
+
+### Get loans [GET /loans]
+
+## Savings Microservice [/savings]
+
+### Create savings [POST /savings]
+
+### Get saving [GET /savings/:savingsId]
+
+### Withdraw savings [POST /savings/:savingsId/withdraw]
+
+### Get savings transactions [GET /savingstransactions]
+
+### Fund savings [POST /savings/:savingsId/fund]
+
+### Create fixed savings [POST /fixedsavings]
+
+### Get fixed saving [GET /fixedsavings/:savingsId]
+
+### Withdraw fixed savings [POST /fixedsavings/:savingsId/withdraw]
+
+### Get fixedsavings transactions [GET /fixedsavingstransactions]
+
+### Fund fixed savings [POST /fixedsavings/:savingsId/fund]
+
+## Send Money Microservice [/sendmoney]
+
+### Get beneficiaries [GET /beneficiaries]
+
+### Save beneficiaries [POST /beneficiaries]
+
+### Delete beneficiary [DELETE /beneficiaries/:beneficiaryId]
+
+### Send Money [POST /sendmoney]
+
+### Get send money history [GET /sendmoneytransactions]
+
+## Bills Microservice [/bills]
+
+### Get bill categories [GET /billcategories]
+
+### Get bills in a categories [GET /billcategories/:categoryId]
+
+### Get bill transactions [GET /billtransactions]
+
+### Get bill [GET /bill/:billId]
+
+### Get purchase bill [POST /bill/:billId/purchase]
+
+### Create recurring bill purchase [POST /bill/:billId/recurringpurchase]
+
+### Get bill fee [POST /bill/:billId/fee]
+
+### Save bill [POST /savedbills]
+
+## Payment Methods Microservice [/paymentmethods]
+
+### Create payment methods [POST /paymentmethods]
+
+### Get payment method [GET /paymentmethods/:paymentMethodId]
+
+### Get payment methods [GET /paymentmethods]
+
+### Delete payment method [DELETE /paymentmethods/:paymentMethodId]
+
+## Notifications [/notifications]
+
+### Get notifications [GET /notifications]
+
+### Create notification [POST /notifications]
+
+### Get notification [GET /notifications/:notificationId]
