@@ -9,6 +9,22 @@ This documents the API specs for the ETB project
 
 ### Sign up a new user [POST /register]
 
++ Response 200 (application/json)
+
+        {
+            "status": "success"
+        }
+
++ Request (application/json)
+    + Body
+
+            {
+              "phone": "092039029302",
+              "email": "johndoe@example.com",
+              "password": "secret"
+            }
+
+
 ### Login to your account [POST /login]
 
 ### Forgot password [GET /forgotpassword]
