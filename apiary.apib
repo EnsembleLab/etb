@@ -26,6 +26,27 @@ This documents the API specs for the ETB project
 
 
 ### Login to your account [POST /login]
++ Response 200 (application/json)
+
+        {
+            "status": "success",
+             "api_key": "lnB0uw6nW8VwdR3JkU6zGbTKPrYBbJdDhRP0kSTU80jlgv1RDTGdzZyKxaDq"
+        }
+        
++ Response 401 (application/json)
+
+        {
+            "status": "failed",
+             "message": "user does not exist"
+        }
+
++ Request (application/json)
+    + Body
+
+            {
+              "username": "092039029302",
+              "password": "secret"
+            }
 
 ### Forgot password [GET /forgotpassword]
 
