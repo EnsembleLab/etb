@@ -105,7 +105,49 @@ This documents the API specs for the ETB project
               "gender": "male"
             }
             
-### Update a user [PUT /users/:userId]
+### Update a user [PUT /users/profile]
++ Request
+    + Headers
+        api_token: 9EYobkJgowPE70SuELuPWrpiGLhdo14ZVCvzRy5UiJmO97kP4UILpFefw030
+    
++ Response 200 (application/json)
+
+        {
+       "status": "success",
+    "data": {
+        "id": 1,
+        "account_id": "gRWxtE0XJA",
+        "email": "johndoe@gmail.com",
+        "phone": "+2478173018280",
+        "bvn": null,
+        "first_name": "yj",
+        "middle_name": "jhjgk",
+        "last_name": "ftyq",
+        "date_of_birth": "12/01/1992",
+        "pin": null,
+        "gender": "male",
+        "status": "active",
+        "referral_code": "oZ1XOb",
+        "created_at": "2018-05-23 13:50:03",
+        "updated_at": "2018-05-31 18:42:19",
+        "resource_id": 101,
+        "office_id": 1,
+        "client_id": 101,
+        "savings_id": 38
+    },
+    "message": "user registeration completed successfully"
+        }
+        
+        + Request (application/json)
+    + Body
+
+            {
+              "firstName": "john",
+              "lastName": "doe",
+              "middleName": "sandstorm",
+              "dateOfBirth": "12/01/1992",
+              "gender": "male"
+            }
 
 ### Forgot password [GET /forgotpassword]
 
