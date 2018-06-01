@@ -24,6 +24,53 @@ This documents the API specs for the ETB project
               "password": "secret"
             }
 
+### Sign up a new user pase 2 [POST users/register/phase2]
++ Request
+    + Headers
+        api_token: 9EYobkJgowPE70SuELuPWrpiGLhdo14ZVCvzRy5UiJmO97kP4UILpFefw030
+    
++ Response 200 (application/json)
+
+        {
+    "status": "failed",
+    "message": "Client with externalId `5M8PiG1RPZ` already exists"
+        }
++ Response 200 (application/json)
+
+        {
+       "status": "success",
+    "data": {
+        "id": 1,
+        "account_id": "gRWxtE0XJA",
+        "email": "johndoe@gmail.com",
+        "phone": "+2478173018280",
+        "bvn": null,
+        "first_name": "yj",
+        "middle_name": "jhjgk",
+        "last_name": "ftyq",
+        "date_of_birth": "12/01/1992",
+        "pin": null,
+        "gender": "male",
+        "status": "active",
+        "referral_code": "oZ1XOb",
+        "created_at": "2018-05-23 13:50:03",
+        "updated_at": "2018-05-31 18:42:19",
+        "resource_id": 101,
+        "office_id": 1,
+        "client_id": 101,
+        "savings_id": 38
+    },
+    "message": "user registeration completed successfully"
+        }
+
++ Request (application/json)
+    + Body
+
+            {
+              "phone": "092039029302",
+              "email": "johndoe@example.com",
+              "password": "secret"
+            }
 
 ### Login to your account [POST /login]
 + Response 200 (application/json)
@@ -60,6 +107,8 @@ This documents the API specs for the ETB project
 ### Set a new password [GET /setnewpassword]
 
 ### Update a user [PUT /users/:userId]
+
+
 
 ### Get a user [GET /users/:userId]
 
