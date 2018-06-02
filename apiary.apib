@@ -325,7 +325,34 @@ Unauthorized.
        "message": "Please use your BVN number"
     }
     
-    
+### Complete BVN Verification [POST /users/setBankDetails]
+             + Request (application/json)
+    + Body
+
+            {
+              "bank_name": "ACCESS BANK NIGERIA",
+              "bank_code": 004,
+              "account_number": 0690000031
+            }
+            +request
+ + Headers
+        api_token: 9EYobkJgowPE70SuELuPWrpiGLhdo14ZVCvzRy5UiJmO97kP4UILpFefw030
+        
+               + Response 200 (application/json)
+
+        {
+      "status": "success",
+    "message": "bank details created successfully"
+    }
+        
+            + Response 200 (application/json)
+
+        {
+       "status": "failed",
+       "message": [
+        "account number already exists in our system"
+    ]
+    }
         
     
 
@@ -346,6 +373,7 @@ Unauthorized.
 ### Get loans [GET /loans]
 
 ## Savings Microservice [/savings]
+
 
 ### Create savings [POST /savings]
 
