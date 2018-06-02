@@ -264,6 +264,10 @@ Unauthorized.
         api_token: 9EYobkJgowPE70SuELuPWrpiGLhdo14ZVCvzRy5UiJmO97kP4UILpFefw030
 
 ### Verify BVN [GET /users/verifyBvn]
+  +request
+    + Headers
+        api_token: 9EYobkJgowPE70SuELuPWrpiGLhdo14ZVCvzRy5UiJmO97kP4UILpFefw030
+        
 + Response 200 (application/json)
 
         {
@@ -287,9 +291,7 @@ Unauthorized.
     
     + Response 401 (application/text)
         Unauthorized.
-+request
- + Headers
-        api_token: 9EYobkJgowPE70SuELuPWrpiGLhdo14ZVCvzRy5UiJmO97kP4UILpFefw030
+      
         
              + Request (application/json)
     + Body
@@ -299,6 +301,33 @@ Unauthorized.
             }
 
 ### Complete BVN Verification [GET /users/completeVerifyBvn]
+             + Request (application/json)
+    + Body
+
+            {
+              "bvn_otp": "12345",
+            }
+            +request
+ + Headers
+        api_token: 9EYobkJgowPE70SuELuPWrpiGLhdo14ZVCvzRy5UiJmO97kP4UILpFefw030
+        
+               + Response 200 (application/json)
+
+        {
+       "status": "success",
+       "message": "validation complete"
+    }
+        
+            + Response 200 (application/json)
+
+        {
+       "status": "error",
+       "message": "Please use your BVN number"
+    }
+    
+    
+        
+    
 
 ## Loans Microservice [/loans]
 
