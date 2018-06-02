@@ -257,15 +257,48 @@ Unauthorized.
             }
             
     
-          + Response 401 (application/text)
-Unauthorized.
+    + Response 401 (application/text)
+        Unauthorized.
 +request
  + Headers
         api_token: 9EYobkJgowPE70SuELuPWrpiGLhdo14ZVCvzRy5UiJmO97kP4UILpFefw030
 
-### Verify BVN [GET /users/:userId/verifyBvn]
+### Verify BVN [GET /users/verifyBvn]
++ Response 200 (application/json)
 
-### Complete BVN Verification [GET /users/:userId/completeVerifyBvn]
+        {
+       "status": "success",
+    "data": {
+        "status": "success",
+        "message": "BVN",
+        "data": {
+            "transactionReference": "FLW000974716",
+            "responseMessage": "Please enter the otp sent to 070****3016 for Validation",
+            "responseCode": "00"
+        }
+    }
+    }
+    
+    + Response 200 (application/json)
+
+        {
+       "status": "error",
+    }
+    
+    + Response 401 (application/text)
+        Unauthorized.
++request
+ + Headers
+        api_token: 9EYobkJgowPE70SuELuPWrpiGLhdo14ZVCvzRy5UiJmO97kP4UILpFefw030
+        
+             + Request (application/json)
+    + Body
+
+            {
+              "bvn": "12345678901",
+            }
+
+### Complete BVN Verification [GET /users/completeVerifyBvn]
 
 ## Loans Microservice [/loans]
 
