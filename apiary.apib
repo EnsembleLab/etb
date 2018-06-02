@@ -1217,8 +1217,23 @@ Unauthorized.
 }
 
 
-
 ### Fund savings [POST /savings/:savingsId/fund]
++ Response 200 (application/json)
+
+        {
+    "status": "success",
+    "message": "deposit made successfully"
+    }
+    
+          + Request (application/json)
+    + Body
+
+            {
+              "transactionAmount": "10000",
+            }
+            +request
+ + Headers
+        api_token: 9EYobkJgowPE70SuELuPWrpiGLhdo14ZVCvzRy5UiJmO97kP4UILpFefw030
 
 ### Create fixed savings [POST /fixedsavings]
 
