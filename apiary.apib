@@ -1237,6 +1237,74 @@ Unauthorized.
 
 ### Create fixed savings [POST /fixedsavings]
 
++ Response 200 (application/json)
+
+        {
+    "status": "success",
+    "message": "Fixed depost created successfully made successfully"
+    "data": {
+          "officeId": 2,
+  "clientId": 101,
+  "savingsId": 1,
+  "resourceId": 1,
+  "changes": {
+    "status": {
+      "id": 200,
+      "code": "savingsAccountStatusType.approved",
+      "value": "Approved",
+      "submittedAndPendingApproval": false,
+      "approved": true,
+      "rejected": false,
+      "withdrawnByApplicant": false,
+      "active": false,
+      "closed": false
+    },
+    "locale": "en",
+    "dateFormat": "dd MMMM yyyy",
+    "approvedOnDate": "02 june 2018"
+  }
+    }
+    }
+    
+    + Response 200 (application/json)
+
+ {
+    "status": "success",
+    "data": {
+        "developerMessage": "The request was invalid. This typically will happen due to validation errors which are provided.",
+        "httpStatusCode": "400",
+        "defaultUserMessage": "Validation errors exist.",
+        "userMessageGlobalisationCode": "validation.msg.validation.errors.exist",
+        "errors": [
+            {
+                "developerMessage": "Failed data validation due to: no.applicable.interest.rate.is.found.based.on.amount.and.deposit.period.",
+                "defaultUserMessage": "Failed data validation due to: no.applicable.interest.rate.is.found.based.on.amount.and.deposit.period.",
+                "userMessageGlobalisationCode": "validation.msg.fixeddepositaccount.no.applicable.interest.rate.is.found.based.on.amount.and.deposit.period",
+                "parameterName": null,
+                "value": null,
+                "args": [
+                    {
+                        "value": null
+                    },
+                    {
+                        "value": []
+                    }
+                ]
+            }
+        ]
+    }
+}
+    
+          + Request (application/json)
+    + Body
+
+            {
+              "transactionAmount": "10000",
+            }
+            +request
+ + Headers
+        api_token: 9EYobkJgowPE70SuELuPWrpiGLhdo14ZVCvzRy5UiJmO97kP4UILpFefw030
+
 ### Get fixed saving [GET /fixedsavings/:savingsId]
 
 ### Withdraw fixed savings [POST /fixedsavings/:savingsId/withdraw]
