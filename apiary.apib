@@ -224,6 +224,35 @@ Unauthorized.
 +request
  + Headers
         api_token: 9EYobkJgowPE70SuELuPWrpiGLhdo14ZVCvzRy5UiJmO97kP4UILpFefw030
+        
+### setBankDetails [POST /users/setBankDetails]
+
+             + Request (application/json)
+    + Body
+            {
+              "bank_name": "ACCESS BANK NIGERIA",
+              "bank_code": 004,
+              "account_number": 0690000031
+            }
+            +request
+ + Headers
+        api_token: 9EYobkJgowPE70SuELuPWrpiGLhdo14ZVCvzRy5UiJmO97kP4UILpFefw030
+        
+               + Response 200 (application/json)
+
+        {
+      "status": "success",
+    "message": "bank details created successfully"
+    }
+        
+            + Response 200 (application/json)
+
+        {
+       "status": "failed",
+       "message": [
+        "account number already exists in our system"
+    ]
+    }
 
 ### Validate Pin [GET /users/validatePin]
 + Response 200 (application/json)
@@ -325,34 +354,6 @@ Unauthorized.
        "message": "Please use your BVN number"
     }
     
-### Complete BVN Verification [POST /users/setBankDetails]
-             + Request (application/json)
-    + Body
-
-            {
-              "bank_name": "ACCESS BANK NIGERIA",
-              "bank_code": 004,
-              "account_number": 0690000031
-            }
-            +request
- + Headers
-        api_token: 9EYobkJgowPE70SuELuPWrpiGLhdo14ZVCvzRy5UiJmO97kP4UILpFefw030
-        
-               + Response 200 (application/json)
-
-        {
-      "status": "success",
-    "message": "bank details created successfully"
-    }
-        
-            + Response 200 (application/json)
-
-        {
-       "status": "failed",
-       "message": [
-        "account number already exists in our system"
-    ]
-    }
         
     
 
