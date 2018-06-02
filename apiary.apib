@@ -153,7 +153,40 @@ This documents the API specs for the ETB project
 
 ### Set a new password [GET /setnewpassword]
 
-### Get a user [GET /users/:userId]
+### Get a user [GET /users]
++ Response 200 (application/json)
+
+        {
+            "status": "success",
+                "data   ": {
+        "id": null,
+        "account_id": "gRWxtE0XJA",
+        "email": "johndoe@gmail.com",
+        "password": "$2y$10$pPrnXP3nIewtji2ZbncR.eKUBclkOw1ltHUL0AKH72vuGAxAHeH3K",
+        "phone": "+2478173018280",
+        "bvn": null,
+        "api_token": "k6tDzHbzva2pge9LH92ToN73Ly2gH6ZqpcYUYzdvYrV3hk4XdTD4nriPGm9j",
+        "first_name": "john",
+        "middle_name": "sandstorm",
+        "last_name": "doe",
+        "date_of_birth": "12/01/1992",
+        "pin": null,
+        "gender": "male",
+        "status": "active",
+        "referral_code": "oZ1XOb",
+        "created_at": null,
+        "updated_at": null,
+        "resource_id": 101,
+        "office_id": 1,
+        "client_id": 101,
+        "savings_id": 38,
+        "user_id": null,
+        "amount": null
+    }
+        }
+        
+      + Response 401 (application/text)
+Unauthorized.
 
 ### Report Issue [GET /users/:userId/reportIssue]
 
