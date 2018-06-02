@@ -550,11 +550,47 @@ Unauthorized.
 ## Savings Microservice [/savings]
 
 ### Get saving [GET /savings/:savingsId]
+
++ Request
+    + Headers
+        api_token: 9EYobkJgowPE70SuELuPWrpiGLhdo14ZVCvzRy5UiJmO97kP4UILpFefw030
+        
 + Response 200 (application/json)
 
         {
     "status": "success",
     "data": 33000
+    }
+    
+
+
+### Withdraw savings [POST /savings/:savingsId/withdraw]
++ Response 200 (application/json)
+        {
+    "status": "success",
+    "data": {
+        "developerMessage": "The request was invalid. This typically will happen due to validation errors which are provided.",
+        "httpStatusCode": "400",
+        "defaultUserMessage": "Validation errors exist.",
+        "userMessageGlobalisationCode": "validation.msg.validation.errors.exist",
+        "errors": [
+            {
+                "developerMessage": "Withdrawal is not allowed. No withdrawals are allowed until after 06 June 2018",
+                "defaultUserMessage": "Withdrawal is not allowed. No withdrawals are allowed until after 06 June 2018",
+                "userMessageGlobalisationCode": "error.msg.savingsaccount.transaction.withdrawals.blocked.during.lockin.period",
+                "parameterName": "transactionDate",
+                "value": null,
+                "args": [
+                    {
+                        "value": "02 June 2018"
+                    },
+                    {
+                        "value": "06 June 2018"
+                    }
+                ]
+            }
+        ]
+    }
     }
     
           + Request (application/json)
@@ -567,10 +603,620 @@ Unauthorized.
  + Headers
         api_token: 9EYobkJgowPE70SuELuPWrpiGLhdo14ZVCvzRy5UiJmO97kP4UILpFefw030
 
-### Withdraw savings [POST /savings/:savingsId/withdraw]
+### Get savings transactions [GET savings/savingstransactions]
++ Request
+    + Headers
+        api_token: 9EYobkJgowPE70SuELuPWrpiGLhdo14ZVCvzRy5UiJmO97kP4UILpFefw030
+        
++ Response 200 (application/json)
 
 
-### Get savings transactions [GET /savingstransactions]
+{
+    "status": "success",
+    "data": [
+        {
+            "id": 44,
+            "transactionType": {
+                "id": 3,
+                "code": "savingsAccountTransactionType.interestPosting",
+                "value": "Interest posting",
+                "deposit": false,
+                "dividendPayout": false,
+                "withdrawal": false,
+                "interestPosting": true,
+                "feeDeduction": false,
+                "initiateTransfer": false,
+                "approveTransfer": false,
+                "withdrawTransfer": false,
+                "rejectTransfer": false,
+                "overdraftInterest": false,
+                "writtenoff": false,
+                "overdraftFee": true,
+                "withholdTax": false,
+                "escheat": false,
+                "amountHold": false,
+                "amountRelease": false
+            },
+            "accountId": 23,
+            "accountNo": "000000023",
+            "date": [
+                2018,
+                6,
+                1
+            ],
+            "currency": {
+                "code": "USD",
+                "name": "US Dollar",
+                "decimalPlaces": 2,
+                "inMultiplesOf": 0,
+                "displaySymbol": "$",
+                "nameCode": "currency.USD",
+                "displayLabel": "US Dollar ($)"
+            },
+            "amount": 9.45,
+            "runningBalance": 33009.45,
+            "reversed": false,
+            "submittedOnDate": [
+                2018,
+                5,
+                31
+            ],
+            "interestedPostedAsOn": false
+        },
+        {
+            "id": 34,
+            "transactionType": {
+                "id": 1,
+                "code": "savingsAccountTransactionType.deposit",
+                "value": "Deposit",
+                "deposit": true,
+                "dividendPayout": false,
+                "withdrawal": false,
+                "interestPosting": false,
+                "feeDeduction": false,
+                "initiateTransfer": false,
+                "approveTransfer": false,
+                "withdrawTransfer": false,
+                "rejectTransfer": false,
+                "overdraftInterest": false,
+                "writtenoff": false,
+                "overdraftFee": true,
+                "withholdTax": false,
+                "escheat": false,
+                "amountHold": false,
+                "amountRelease": false
+            },
+            "accountId": 23,
+            "accountNo": "000000023",
+            "date": [
+                2018,
+                5,
+                31
+            ],
+            "currency": {
+                "code": "USD",
+                "name": "US Dollar",
+                "decimalPlaces": 2,
+                "inMultiplesOf": 0,
+                "displaySymbol": "$",
+                "nameCode": "currency.USD",
+                "displayLabel": "US Dollar ($)"
+            },
+            "amount": 3000,
+            "runningBalance": 33000,
+            "reversed": false,
+            "submittedOnDate": [
+                2018,
+                5,
+                31
+            ],
+            "interestedPostedAsOn": false,
+            "submittedByUsername": "mifos"
+        },
+        {
+            "id": 33,
+            "transactionType": {
+                "id": 1,
+                "code": "savingsAccountTransactionType.deposit",
+                "value": "Deposit",
+                "deposit": true,
+                "dividendPayout": false,
+                "withdrawal": false,
+                "interestPosting": false,
+                "feeDeduction": false,
+                "initiateTransfer": false,
+                "approveTransfer": false,
+                "withdrawTransfer": false,
+                "rejectTransfer": false,
+                "overdraftInterest": false,
+                "writtenoff": false,
+                "overdraftFee": true,
+                "withholdTax": false,
+                "escheat": false,
+                "amountHold": false,
+                "amountRelease": false
+            },
+            "accountId": 23,
+            "accountNo": "000000023",
+            "date": [
+                2018,
+                5,
+                31
+            ],
+            "currency": {
+                "code": "USD",
+                "name": "US Dollar",
+                "decimalPlaces": 2,
+                "inMultiplesOf": 0,
+                "displaySymbol": "$",
+                "nameCode": "currency.USD",
+                "displayLabel": "US Dollar ($)"
+            },
+            "amount": 3000,
+            "runningBalance": 30000,
+            "reversed": false,
+            "submittedOnDate": [
+                2018,
+                5,
+                31
+            ],
+            "interestedPostedAsOn": false,
+            "submittedByUsername": "mifos"
+        },
+        {
+            "id": 32,
+            "transactionType": {
+                "id": 1,
+                "code": "savingsAccountTransactionType.deposit",
+                "value": "Deposit",
+                "deposit": true,
+                "dividendPayout": false,
+                "withdrawal": false,
+                "interestPosting": false,
+                "feeDeduction": false,
+                "initiateTransfer": false,
+                "approveTransfer": false,
+                "withdrawTransfer": false,
+                "rejectTransfer": false,
+                "overdraftInterest": false,
+                "writtenoff": false,
+                "overdraftFee": true,
+                "withholdTax": false,
+                "escheat": false,
+                "amountHold": false,
+                "amountRelease": false
+            },
+            "accountId": 23,
+            "accountNo": "000000023",
+            "date": [
+                2018,
+                5,
+                31
+            ],
+            "currency": {
+                "code": "USD",
+                "name": "US Dollar",
+                "decimalPlaces": 2,
+                "inMultiplesOf": 0,
+                "displaySymbol": "$",
+                "nameCode": "currency.USD",
+                "displayLabel": "US Dollar ($)"
+            },
+            "amount": 3000,
+            "runningBalance": 27000,
+            "reversed": false,
+            "submittedOnDate": [
+                2018,
+                5,
+                31
+            ],
+            "interestedPostedAsOn": false,
+            "submittedByUsername": "mifos"
+        },
+        {
+            "id": 31,
+            "transactionType": {
+                "id": 1,
+                "code": "savingsAccountTransactionType.deposit",
+                "value": "Deposit",
+                "deposit": true,
+                "dividendPayout": false,
+                "withdrawal": false,
+                "interestPosting": false,
+                "feeDeduction": false,
+                "initiateTransfer": false,
+                "approveTransfer": false,
+                "withdrawTransfer": false,
+                "rejectTransfer": false,
+                "overdraftInterest": false,
+                "writtenoff": false,
+                "overdraftFee": true,
+                "withholdTax": false,
+                "escheat": false,
+                "amountHold": false,
+                "amountRelease": false
+            },
+            "accountId": 23,
+            "accountNo": "000000023",
+            "date": [
+                2018,
+                5,
+                31
+            ],
+            "currency": {
+                "code": "USD",
+                "name": "US Dollar",
+                "decimalPlaces": 2,
+                "inMultiplesOf": 0,
+                "displaySymbol": "$",
+                "nameCode": "currency.USD",
+                "displayLabel": "US Dollar ($)"
+            },
+            "amount": 3000,
+            "runningBalance": 24000,
+            "reversed": false,
+            "submittedOnDate": [
+                2018,
+                5,
+                31
+            ],
+            "interestedPostedAsOn": false,
+            "submittedByUsername": "mifos"
+        },
+        {
+            "id": 30,
+            "transactionType": {
+                "id": 1,
+                "code": "savingsAccountTransactionType.deposit",
+                "value": "Deposit",
+                "deposit": true,
+                "dividendPayout": false,
+                "withdrawal": false,
+                "interestPosting": false,
+                "feeDeduction": false,
+                "initiateTransfer": false,
+                "approveTransfer": false,
+                "withdrawTransfer": false,
+                "rejectTransfer": false,
+                "overdraftInterest": false,
+                "writtenoff": false,
+                "overdraftFee": true,
+                "withholdTax": false,
+                "escheat": false,
+                "amountHold": false,
+                "amountRelease": false
+            },
+            "accountId": 23,
+            "accountNo": "000000023",
+            "date": [
+                2018,
+                5,
+                31
+            ],
+            "currency": {
+                "code": "USD",
+                "name": "US Dollar",
+                "decimalPlaces": 2,
+                "inMultiplesOf": 0,
+                "displaySymbol": "$",
+                "nameCode": "currency.USD",
+                "displayLabel": "US Dollar ($)"
+            },
+            "amount": 3000,
+            "runningBalance": 21000,
+            "reversed": false,
+            "submittedOnDate": [
+                2018,
+                5,
+                31
+            ],
+            "interestedPostedAsOn": false,
+            "submittedByUsername": "mifos"
+        },
+        {
+            "id": 29,
+            "transactionType": {
+                "id": 1,
+                "code": "savingsAccountTransactionType.deposit",
+                "value": "Deposit",
+                "deposit": true,
+                "dividendPayout": false,
+                "withdrawal": false,
+                "interestPosting": false,
+                "feeDeduction": false,
+                "initiateTransfer": false,
+                "approveTransfer": false,
+                "withdrawTransfer": false,
+                "rejectTransfer": false,
+                "overdraftInterest": false,
+                "writtenoff": false,
+                "overdraftFee": true,
+                "withholdTax": false,
+                "escheat": false,
+                "amountHold": false,
+                "amountRelease": false
+            },
+            "accountId": 23,
+            "accountNo": "000000023",
+            "date": [
+                2018,
+                5,
+                31
+            ],
+            "currency": {
+                "code": "USD",
+                "name": "US Dollar",
+                "decimalPlaces": 2,
+                "inMultiplesOf": 0,
+                "displaySymbol": "$",
+                "nameCode": "currency.USD",
+                "displayLabel": "US Dollar ($)"
+            },
+            "amount": 3000,
+            "runningBalance": 18000,
+            "reversed": false,
+            "submittedOnDate": [
+                2018,
+                5,
+                31
+            ],
+            "interestedPostedAsOn": false,
+            "submittedByUsername": "mifos"
+        },
+        {
+            "id": 26,
+            "transactionType": {
+                "id": 1,
+                "code": "savingsAccountTransactionType.deposit",
+                "value": "Deposit",
+                "deposit": true,
+                "dividendPayout": false,
+                "withdrawal": false,
+                "interestPosting": false,
+                "feeDeduction": false,
+                "initiateTransfer": false,
+                "approveTransfer": false,
+                "withdrawTransfer": false,
+                "rejectTransfer": false,
+                "overdraftInterest": false,
+                "writtenoff": false,
+                "overdraftFee": true,
+                "withholdTax": false,
+                "escheat": false,
+                "amountHold": false,
+                "amountRelease": false
+            },
+            "accountId": 23,
+            "accountNo": "000000023",
+            "date": [
+                2018,
+                5,
+                31
+            ],
+            "currency": {
+                "code": "USD",
+                "name": "US Dollar",
+                "decimalPlaces": 2,
+                "inMultiplesOf": 0,
+                "displaySymbol": "$",
+                "nameCode": "currency.USD",
+                "displayLabel": "US Dollar ($)"
+            },
+            "amount": 2000,
+            "runningBalance": 15000,
+            "reversed": false,
+            "submittedOnDate": [
+                2018,
+                5,
+                30
+            ],
+            "interestedPostedAsOn": false,
+            "submittedByUsername": "mifos"
+        },
+        {
+            "id": 28,
+            "transactionType": {
+                "id": 1,
+                "code": "savingsAccountTransactionType.deposit",
+                "value": "Deposit",
+                "deposit": true,
+                "dividendPayout": false,
+                "withdrawal": false,
+                "interestPosting": false,
+                "feeDeduction": false,
+                "initiateTransfer": false,
+                "approveTransfer": false,
+                "withdrawTransfer": false,
+                "rejectTransfer": false,
+                "overdraftInterest": false,
+                "writtenoff": false,
+                "overdraftFee": true,
+                "withholdTax": false,
+                "escheat": false,
+                "amountHold": false,
+                "amountRelease": false
+            },
+            "accountId": 23,
+            "accountNo": "000000023",
+            "date": [
+                2018,
+                5,
+                30
+            ],
+            "currency": {
+                "code": "USD",
+                "name": "US Dollar",
+                "decimalPlaces": 2,
+                "inMultiplesOf": 0,
+                "displaySymbol": "$",
+                "nameCode": "currency.USD",
+                "displayLabel": "US Dollar ($)"
+            },
+            "amount": 5000,
+            "runningBalance": 13000,
+            "reversed": false,
+            "submittedOnDate": [
+                2018,
+                5,
+                30
+            ],
+            "interestedPostedAsOn": false,
+            "submittedByUsername": "mifos"
+        },
+        {
+            "id": 27,
+            "transactionType": {
+                "id": 1,
+                "code": "savingsAccountTransactionType.deposit",
+                "value": "Deposit",
+                "deposit": true,
+                "dividendPayout": false,
+                "withdrawal": false,
+                "interestPosting": false,
+                "feeDeduction": false,
+                "initiateTransfer": false,
+                "approveTransfer": false,
+                "withdrawTransfer": false,
+                "rejectTransfer": false,
+                "overdraftInterest": false,
+                "writtenoff": false,
+                "overdraftFee": true,
+                "withholdTax": false,
+                "escheat": false,
+                "amountHold": false,
+                "amountRelease": false
+            },
+            "accountId": 23,
+            "accountNo": "000000023",
+            "date": [
+                2018,
+                5,
+                30
+            ],
+            "currency": {
+                "code": "USD",
+                "name": "US Dollar",
+                "decimalPlaces": 2,
+                "inMultiplesOf": 0,
+                "displaySymbol": "$",
+                "nameCode": "currency.USD",
+                "displayLabel": "US Dollar ($)"
+            },
+            "amount": 5000,
+            "runningBalance": 8000,
+            "reversed": false,
+            "submittedOnDate": [
+                2018,
+                5,
+                30
+            ],
+            "interestedPostedAsOn": false,
+            "submittedByUsername": "mifos"
+        },
+        {
+            "id": 25,
+            "transactionType": {
+                "id": 1,
+                "code": "savingsAccountTransactionType.deposit",
+                "value": "Deposit",
+                "deposit": true,
+                "dividendPayout": false,
+                "withdrawal": false,
+                "interestPosting": false,
+                "feeDeduction": false,
+                "initiateTransfer": false,
+                "approveTransfer": false,
+                "withdrawTransfer": false,
+                "rejectTransfer": false,
+                "overdraftInterest": false,
+                "writtenoff": false,
+                "overdraftFee": true,
+                "withholdTax": false,
+                "escheat": false,
+                "amountHold": false,
+                "amountRelease": false
+            },
+            "accountId": 23,
+            "accountNo": "000000023",
+            "date": [
+                2018,
+                5,
+                30
+            ],
+            "currency": {
+                "code": "USD",
+                "name": "US Dollar",
+                "decimalPlaces": 2,
+                "inMultiplesOf": 0,
+                "displaySymbol": "$",
+                "nameCode": "currency.USD",
+                "displayLabel": "US Dollar ($)"
+            },
+            "amount": 2000,
+            "runningBalance": 3000,
+            "reversed": false,
+            "submittedOnDate": [
+                2018,
+                5,
+                30
+            ],
+            "interestedPostedAsOn": false,
+            "submittedByUsername": "mifos"
+        },
+        {
+            "id": 13,
+            "transactionType": {
+                "id": 1,
+                "code": "savingsAccountTransactionType.deposit",
+                "value": "Deposit",
+                "deposit": true,
+                "dividendPayout": false,
+                "withdrawal": false,
+                "interestPosting": false,
+                "feeDeduction": false,
+                "initiateTransfer": false,
+                "approveTransfer": false,
+                "withdrawTransfer": false,
+                "rejectTransfer": false,
+                "overdraftInterest": false,
+                "writtenoff": false,
+                "overdraftFee": true,
+                "withholdTax": false,
+                "escheat": false,
+                "amountHold": false,
+                "amountRelease": false
+            },
+            "accountId": 23,
+            "accountNo": "000000023",
+            "date": [
+                2018,
+                5,
+                30
+            ],
+            "currency": {
+                "code": "USD",
+                "name": "US Dollar",
+                "decimalPlaces": 2,
+                "inMultiplesOf": 0,
+                "displaySymbol": "$",
+                "nameCode": "currency.USD",
+                "displayLabel": "US Dollar ($)"
+            },
+            "amount": 1000,
+            "runningBalance": 1000,
+            "reversed": false,
+            "submittedOnDate": [
+                2018,
+                5,
+                30
+            ],
+            "interestedPostedAsOn": false,
+            "submittedByUsername": "mifos"
+        }
+    ]
+}
+
+
 
 ### Fund savings [POST /savings/:savingsId/fund]
 
