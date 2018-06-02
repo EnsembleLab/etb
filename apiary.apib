@@ -187,6 +187,9 @@ This documents the API specs for the ETB project
         
       + Response 401 (application/text)
 Unauthorized.
++request
+ + Headers
+        api_token: 9EYobkJgowPE70SuELuPWrpiGLhdo14ZVCvzRy5UiJmO97kP4UILpFefw030
 
 ### Report Issue [GET /users/:userId/reportIssue]
 
@@ -207,11 +210,22 @@ Unauthorized.
     ]
     }
     
+            
+        + Request (application/json)
+    + Body
+
+            {
+              "pin": "6719",
+            }
+            
+    
           + Response 401 (application/text)
 Unauthorized.
++request
+ + Headers
+        api_token: 9EYobkJgowPE70SuELuPWrpiGLhdo14ZVCvzRy5UiJmO97kP4UILpFefw030
 
-
-### Validate Pin [GET /users/:userId/validatePin]
+### Validate Pin [GET /users/validatePin]
 
 ### Verify BVN [GET /users/:userId/verifyBvn]
 
