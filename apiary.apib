@@ -190,7 +190,26 @@ Unauthorized.
 
 ### Report Issue [GET /users/:userId/reportIssue]
 
-### Set Pin [GET /users/:userId/setPin]
+### Set Pin [POST /users/setPin]
++ Response 200 (application/json)
+
+        {
+    "status": "success",
+    "message": "Pin created successfully"
+    }
+    
+    + Response 200 (application/json)
+
+        {
+       "status": "failed",
+    "message": [
+        "pin should be 4 digits long"
+    ]
+    }
+    
+          + Response 401 (application/text)
+Unauthorized.
+
 
 ### Validate Pin [GET /users/:userId/validatePin]
 
