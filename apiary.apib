@@ -365,7 +365,24 @@ Unauthorized.
  + Headers
         api_token: 9EYobkJgowPE70SuELuPWrpiGLhdo14ZVCvzRy5UiJmO97kP4UILpFefw030
 
-### Report Issue [GET /users/:userId/reportIssue]
+### Report Issue [POST /users/reportIssue]
+
+ + Response 200 (application/json)
+    
+        {
+        "status": "success",
+        "message": "message sent successfully"
+    }
+        
+    
+    + Response 401 (application/text)
+Unauthorized.
+
+        
+
++request
+ + Headers
+        api_token: 9EYobkJgowPE70SuELuPWrpiGLhdo14ZVCvzRy5UiJmO97kP4UILpFefw030
 
 ### Set Pin [POST /users/setPin]
 + Response 200 (application/json)
