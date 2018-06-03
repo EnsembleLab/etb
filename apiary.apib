@@ -1305,7 +1305,7 @@ Unauthorized.
  + Headers
         api_token: 9EYobkJgowPE70SuELuPWrpiGLhdo14ZVCvzRy5UiJmO97kP4UILpFefw030
 
-### Get fixed saving [GET /fixedsavings/:savingsId]
+### Get fixed saving [GET savings/fixedsavings/:savingsId]
   + Response 200 (application/json)
 
  {
@@ -1318,9 +1318,65 @@ Unauthorized.
         api_token: 9EYobkJgowPE70SuELuPWrpiGLhdo14ZVCvzRy5UiJmO97kP4UILpFefw030
 
 
-### Withdraw fixed savings [POST /fixedsavings/:savingsId/withdraw]
+### Withdraw fixed savings [POST savings/fixedsavings/:savingsId/withdraw]
 
-### Get fixedsavings transactions [GET /fixedsavingstransactions]
+### Get fixedsavings transactions [GET savings/fixedsavingstransactions/:savingsId]
+  + Response 200 (application/json)
+
+{
+    "status": "success",
+    "data": [
+        {
+            "id": 40843,
+            "transactionType": {
+                "id": 1,
+                "code": "savingsAccountTransactionType.deposit",
+                "value": "Deposit",
+                "deposit": true,
+                "dividendPayout": false,
+                "withdrawal": false,
+                "interestPosting": false,
+                "feeDeduction": false,
+                "initiateTransfer": false,
+                "approveTransfer": false,
+                "withdrawTransfer": false,
+                "rejectTransfer": false,
+                "overdraftInterest": false,
+                "writtenoff": false,
+                "overdraftFee": true,
+                "withholdTax": false,
+                "escheat": false,
+                "amountHold": false,
+                "amountRelease": false
+            },
+            "accountId": 1667,
+            "accountNo": "000001667",
+            "date": [
+                2018,
+                3,
+                24
+            ],
+            "currency": {
+                "code": "USD",
+                "name": "US Dollar",
+                "decimalPlaces": 2,
+                "inMultiplesOf": 100,
+                "displaySymbol": "$",
+                "nameCode": "currency.USD",
+                "displayLabel": "US Dollar ($)"
+            },
+            "amount": 10000,
+            "runningBalance": 10000,
+            "reversed": false,
+            "interestedPostedAsOn": false,
+            "submittedByUsername": "mifos"
+        }
+    ]
+}
+ 
+            +request
+ + Headers
+        api_token: 9EYobkJgowPE70SuELuPWrpiGLhdo14ZVCvzRy5UiJmO97kP4UILpFefw030
 
 ### Fund fixed savings [POST /fixedsavings/:savingsId/fund]
 
